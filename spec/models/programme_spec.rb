@@ -39,8 +39,19 @@ RSpec.describe Programme, :type => :model do
   end
 
   describe '.find_by_name' do
+    before do
+      stub_request(:get, "http://api.tv4play.se/site/programs/idol").
+         to_return(:status => 200, :body => "")
+    end
+
     it 'should return Programme class instance' do
       expect(Programme.find_by_name('idol')).to be_a Programme
+    end
+
+    it 'should make a http call to TV4 API programme endpoint' do
+      Programme.find_by_name('idol')
+
+      assert_requested :get, "http://api.tv4play.se/site/programs/idol"
     end
   end
 end
