@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  get 'programme/:id' => 'programme#show', as: :programme
+  get 'participants/:show_name' => 'participants#index', as: :participants
+
+  get 'participants/:show_name/:person_tag' => 'participants#show', as: :participants
+
+  get 'programme/:show_name' => 'programme#show', as: :programme
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
