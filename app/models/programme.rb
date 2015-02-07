@@ -6,4 +6,8 @@ class Programme
   def name
     @programme.fetch('name')
   end
+
+  def description
+    @programme.fetch('description')
+  end
 end
