@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'programme/:id' => 'programme#show', as: :programme
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
