@@ -19,6 +19,11 @@ RSpec.describe Programme, :type => :model do
     it 'should return correct programme name' do
       expect(@programme.name).to eq 'programme_name'
     end
+
+    it 'should raise error if name key is not present' do
+      programme = Programme.new({})
+      expect { programme.name }.to raise_error
+    end
   end
 
   describe '#description' do
