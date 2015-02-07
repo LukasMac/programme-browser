@@ -5,6 +5,9 @@ RSpec.describe Programme, :type => :model do
     {
       "name" => "programme_name",
       "description" => "programme_description",
+      "program_image" =>  {
+        "path" =>  "image.jpg"
+      },
     }
   end
 
@@ -19,6 +22,13 @@ RSpec.describe Programme, :type => :model do
     it 'should return correct programme description' do
       programme = Programme.new(programme_hash)
       expect(programme.description).to eq 'programme_description'
+    end
+  end
+
+  describe '#image' do
+    it 'should return correct programme image' do
+      programme = Programme.new(programme_hash)
+      expect(programme.image).to eq 'image.jpg'
     end
   end
 end

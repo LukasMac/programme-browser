@@ -10,4 +10,8 @@ class Programme
   def description
     @programme.fetch('description')
   end
+
+  def image
+    @programme.fetch('program_image').fetch('path')
+  end
 end
