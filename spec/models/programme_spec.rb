@@ -41,7 +41,10 @@ RSpec.describe Programme, :type => :model do
   describe '.find_by_name' do
     before do
       stub_request(:get, "http://api.tv4play.se/site/programs/idol").
-         to_return(:status => 200, :body => "")
+         to_return(
+           :body => '{"name":"Idol","description":"programme description"}',
+           :headers => { 'Content-Type' => 'application/json' },
+         )
     end
 
     it 'should return Programme class instance' do
@@ -52,6 +55,11 @@ RSpec.describe Programme, :type => :model do
       Programme.find_by_name('idol')
 
       assert_requested :get, "http://api.tv4play.se/site/programs/idol"
+    end
+
+    it 'should return Programme with http request data' do
+      programme = Programme.find_by_name('idol')
+      expect(programme.name).to eq 'Idol'
     end
   end
 end

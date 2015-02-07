@@ -1,7 +1,7 @@
 class Programme
   def self.find_by_name(name)
     response = HTTParty.get("http://api.tv4play.se/site/programs/#{name}").parsed_response
-    Programme.new({})
+    Programme.new(response)
   end
 
   def initialize(programme)
