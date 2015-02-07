@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'participants/:show_name' => 'participants#index', as: :participants
 
-  get 'participants/:show_name/:person_tag' => 'participants#show', as: :participants
+  get 'participants/:show_name/:person_tag' => 'participants#show', as: :participant
 
   get 'programme/:show_name' => 'programme#show', as: :programme
 
