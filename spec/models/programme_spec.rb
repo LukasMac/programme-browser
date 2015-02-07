@@ -37,4 +37,10 @@ RSpec.describe Programme, :type => :model do
       expect(@programme.image).to eq 'image.jpg'
     end
   end
+
+  describe '.find_by_name' do
+    it 'should return Programme class instance' do
+      expect(Programme.find_by_name('idol')).to be_a Programme
+    end
+  end
 end

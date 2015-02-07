@@ -1,4 +1,8 @@
 class Programme
+  def self.find_by_name(name)
+    Programme.new({})
+  end
+
   def initialize(programme)
     @programme = programme
   end
