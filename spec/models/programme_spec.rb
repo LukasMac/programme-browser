@@ -40,6 +40,7 @@ RSpec.describe Programme, :type => :model do
 
   describe '.find_by_name' do
     let(:programme_endpoint) { "http://api.tv4play.se/site/programs" }
+
     before do
       stub_request(:get, "#{programme_endpoint}/idol").
          to_return(
@@ -54,13 +55,11 @@ RSpec.describe Programme, :type => :model do
 
     it 'should make a http call to TV4 API programme endpoint' do
       Programme.find_by_name('idol')
-
       assert_requested :get, "#{programme_endpoint}/idol"
     end
 
     it 'should return Programme with http request data' do
-      programme = Programme.find_by_name('idol')
-      expect(programme.name).to eq 'Idol'
+      expect(Programme.find_by_name('idol').name).to eq 'Idol'
     end
   end
 end
