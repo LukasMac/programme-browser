@@ -1,4 +1,8 @@
 class Participant
+  def self.find_all_by_programme_name(programme_name)
+    []
+  end
+
   def initialize(participant)
     @participant = participant
   end

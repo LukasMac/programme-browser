@@ -39,4 +39,10 @@ RSpec.describe Participant, :type => :model do
       expect(@participant.image).to eq 'http://image.jpg'
     end
   end
+
+  describe '.find_all_by_programme_name' do
+    it 'should return an array' do
+      expect(Participant.find_all_by_programme_name('idol')).to be_a Array
+    end
+  end
 end
