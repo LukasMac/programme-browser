@@ -40,6 +40,15 @@ RSpec.describe Participant, :type => :model do
     end
   end
 
+  describe '#video_assets' do
+    it 'should instantiate VideoAsset with correct person tag' do
+      VideoAsset ||= double('video asset')
+
+      expect(VideoAsset).to receive(:new).with('person_tag')
+      @participant.video_assets
+    end
+  end
+
   describe '.find_all_by_programme_name' do
     let(:programme_endpoint) { "http://api.tv4play.se/site/programs" }
 

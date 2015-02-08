@@ -25,4 +25,8 @@ class Participant
   def image
     @participant.fetch('image').fetch('url')
   end
+
+  def video_assets
+    VideoAsset.new(person_tag)
+  end
 end
