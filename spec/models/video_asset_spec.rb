@@ -72,5 +72,10 @@ RSpec.describe VideoAsset, :type => :model do
     it 'should return an Array with VideoAssets from http response data' do
       expect(VideoAsset.find_all_by_person_tag('person_tag').first.id).to eq '123'
     end
+
+    it 'should make a http call to TV4 API video assets endpoint' do
+      VideoAsset.find_all_by_person_tag('person_tag')
+      assert_requested :get, "#{video_asset_endpoint}person_tag"
+    end
   end
 end
