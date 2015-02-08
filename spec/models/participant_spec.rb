@@ -44,7 +44,7 @@ RSpec.describe Participant, :type => :model do
     it 'should search for video assets with correct person tag' do
       VideoAsset ||= double('video asset')
 
-      expect(VideoAsset).to receive(:find_by_person_tag).with('person_tag')
+      expect(VideoAsset).to receive(:find_all_by_person_tag).with('person_tag')
       @participant.video_assets
     end
   end
