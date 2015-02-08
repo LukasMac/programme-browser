@@ -1,2 +1,5 @@
 %h1 Participants#index
-%p Find me in app/views/participants/index.html.haml
+=@participants.each do |participant|
+  %p=@participant.name
+  %p=@participant.description
+  =image_tag @participant.image
