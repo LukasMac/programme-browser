@@ -41,8 +41,22 @@ RSpec.describe Participant, :type => :model do
   end
 
   describe '.find_all_by_programme_name' do
+    let(:programme_endpoint) { "http://api.tv4play.se/site/programs" }
+
+    before do
+      stub_request(:get, "#{programme_endpoint}/idol").
+         to_return(
+           :headers => { 'Content-Type' => 'application/json' },
+         )
+    end
+
     it 'should return an array' do
       expect(Participant.find_all_by_programme_name('idol')).to be_a Array
+    end
+
+    it 'should make a http call to TV4 API programme endpoint' do
+      Participant.find_all_by_programme_name('idol')
+      assert_requested :get, "#{programme_endpoint}/idol"
     end
   end
 end
