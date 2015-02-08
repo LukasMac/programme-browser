@@ -14,4 +14,8 @@ class VideoAsset
   def title
     @video_asset.fetch('title')
   end
+
+  def description
+    @video_asset.fetch('description')
+  end
 end

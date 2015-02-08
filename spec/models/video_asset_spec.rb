@@ -23,4 +23,11 @@ RSpec.describe VideoAsset, :type => :model do
       expect(video_asset.title).to eq 'Video title'
     end
   end
+
+  describe '#description' do
+    it 'should return correct description' do
+      video_asset = VideoAsset.new(video_asset_hash)
+      expect(video_asset.description).to eq 'Video description'
+    end
+  end
 end
