@@ -12,31 +12,31 @@ RSpec.describe Participant, :type => :model do
     }
   end
 
+  before do
+    @participant = Participant.new(participant_hash)
+  end
+
   describe '#name' do
     it 'should return correct participant name' do
-      participant = Participant.new(participant_hash)
-      expect(participant.name).to eq 'participant_name'
+      expect(@participant.name).to eq 'participant_name'
     end
   end
 
   describe '#description' do
     it 'should return correct participant description' do
-      participant = Participant.new(participant_hash)
-      expect(participant.description).to eq 'description'
+      expect(@participant.description).to eq 'description'
     end
   end
 
   describe '#person_tag' do
     it 'should return correct participant person_tag' do
-      participant = Participant.new(participant_hash)
-      expect(participant.person_tag).to eq 'person_tag'
+      expect(@participant.person_tag).to eq 'person_tag'
     end
   end
 
   describe '#image' do
     it 'should return correct participant image path' do
-      participant = Participant.new(participant_hash)
-      expect(participant.image).to eq 'http://image.jpg'
+      expect(@participant.image).to eq 'http://image.jpg'
     end
   end
 end
