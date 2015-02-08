@@ -45,8 +45,32 @@ RSpec.describe VideoAsset, :type => :model do
   end
 
   describe '.find_all_by_person_tag' do
+    let(:video_asset_endpoint) { 'http://api.tv4play.se/play/video_assets.json?tags=' }
+
+    before do
+      stub_request(:get, "#{video_asset_endpoint}person_tag").
+        to_return(
+          :headers => { 'Content-Type' => 'application/json' },
+          :body => <<-videos_assets_json
+          {
+            "results": [
+              {
+                "id": "123",
+                "title": "Video asset title",
+                "description": "Video asset description",
+                "image": "http://image.jpg"
+              }
+            ]
+          }
+          videos_assets_json
+      )
+    end
     it 'should return and array' do
       expect(VideoAsset.find_all_by_person_tag('person_tag')).to be_a Array
+    end
+
+    it 'should return an Array with VideoAssets from http response data' do
+      expect(VideoAsset.find_all_by_person_tag('person_tag').first.id).to eq '123'
     end
   end
 end

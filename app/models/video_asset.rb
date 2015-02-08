@@ -2,7 +2,10 @@ class VideoAsset
   VIDEO_ENDPOINT = 'http://www.tv4play.se/program'
 
   def self.find_all_by_person_tag(person_tag)
-    []
+    response = HTTParty.get("http://api.tv4play.se/play/video_assets.json?tags=#{person_tag}").parsed_response
+    response.fetch('results').map do |video_asset|
+      VideoAsset.new(video_asset)
+    end
   end
 
   def initialize(video_asset)
