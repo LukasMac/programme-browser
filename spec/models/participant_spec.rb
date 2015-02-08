@@ -32,4 +32,11 @@ RSpec.describe Participant, :type => :model do
       expect(participant.person_tag).to eq 'person_tag'
     end
   end
+
+  describe '#image' do
+    it 'should return correct participant image path' do
+      participant = Participant.new(participant_hash)
+      expect(participant.image).to eq 'http://image.jpg'
+    end
+  end
 end
