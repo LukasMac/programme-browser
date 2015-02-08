@@ -37,4 +37,11 @@ RSpec.describe VideoAsset, :type => :model do
       expect(video_asset.image).to eq 'http://image.jpg'
     end
   end
+
+  describe '#video' do
+    it 'should return correct video path' do
+      video_asset = VideoAsset.new(video_asset_hash)
+      expect(video_asset.video('idol')).to eq 'http://www.tv4play.se/program/idol?video_id=123'
+    end
+  end
 end
