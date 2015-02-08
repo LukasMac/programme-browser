@@ -45,9 +45,27 @@ RSpec.describe Participant, :type => :model do
 
     before do
       stub_request(:get, "#{programme_endpoint}/idol").
-         to_return(
-           :headers => { 'Content-Type' => 'application/json' },
-         )
+        to_return(
+          :headers => { 'Content-Type' => 'application/json' },
+          :body => <<-programme_json
+          {
+            "participant_groups": [
+              {
+                "participants": [
+                  {
+                    "description": "Ålder: 16 år Ort: Stockholm Sökte till Idol...",
+                    "name": "Lisa Ajax",
+                    "person_tag": "lisa-ajax",
+                    "image": {
+                      "url": "http://aman.production.s3.amazonaws.com/541c9453c45948d3ba000097/Lisa_profilbild.jpg?2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+          programme_json
+      )
     end
 
     it 'should return an array' do
@@ -57,6 +75,10 @@ RSpec.describe Participant, :type => :model do
     it 'should make a http call to TV4 API programme endpoint' do
       Participant.find_all_by_programme_name('idol')
       assert_requested :get, "#{programme_endpoint}/idol"
+    end
+
+    it 'should return array of Participants with http request data' do
+      expect(Participant.find_all_by_programme_name('idol').first.name).to eq 'Lisa Ajax'
     end
   end
 end
