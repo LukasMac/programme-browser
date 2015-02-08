@@ -9,17 +9,17 @@ feature 'Participants index page' do
         :headers => { 'Content-Type' => 'application/json' },
         :body => <<-programme_json
         {
-          name:"Idol",
-          description:"Idol programme description",
-          participant_groups: [
+          "name":"Idol",
+          "description":"Idol programme description",
+          "participant_groups": [
             {
-              participants: [
+              "participants": [
                 {
-                  description: "Ålder: 16 år Ort: Stockholm Sökte till Idol..."
-                  name: "Lisa Ajax",
-                  person_tag: "lisa-ajax",
-                  image: {
-                    url: "http://aman.production.s3.amazonaws.com/541c9453c45948d3ba000097/Lisa_profilbild.jpg?2"
+                  "description": "Ålder: 16 år Ort: Stockholm Sökte till Idol...",
+                  "name": "Lisa Ajax",
+                  "person_tag": "lisa-ajax",
+                  "image": {
+                    "url": "http://aman.production.s3.amazonaws.com/541c9453c45948d3ba000097/Lisa_profilbild.jpg?2"
                   }
                 }
               ]

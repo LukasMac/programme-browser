@@ -1,5 +1,5 @@
 %h1 Participants#index
 =@participants.each do |participant|
-  %p=@participant.name
-  %p=@participant.description
-  =image_tag @participant.image
+  %p=participant.name
+  %p=participant.description
+  =image_tag participant.image
