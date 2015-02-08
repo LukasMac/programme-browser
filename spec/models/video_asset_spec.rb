@@ -43,4 +43,10 @@ RSpec.describe VideoAsset, :type => :model do
       expect(@video_asset.video('idol')).to eq 'http://www.tv4play.se/program/idol?video_id=123'
     end
   end
+
+  describe '.find_all_by_person_tag' do
+    it 'should return and array' do
+      expect(VideoAsset.find_all_by_person_tag('person_tag')).to be_a Array
+    end
+  end
 end

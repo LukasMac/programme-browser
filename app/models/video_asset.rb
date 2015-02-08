@@ -2,7 +2,7 @@ class VideoAsset
   VIDEO_ENDPOINT = 'http://www.tv4play.se/program'
 
   def self.find_all_by_person_tag(person_tag)
-
+    []
   end
 
   def initialize(video_asset)
