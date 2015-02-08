@@ -6,4 +6,8 @@ class Participant
   def name
     @participant.fetch('name')
   end
+
+  def description
+    @participant.fetch('description')
+  end
 end
