@@ -10,4 +10,8 @@ class VideoAsset
   def id
     @video_asset.fetch('id')
   end
+
+  def title
+    @video_asset.fetch('title')
+  end
 end
