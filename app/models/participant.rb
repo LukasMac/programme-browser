@@ -10,4 +10,8 @@ class Participant
   def description
     @participant.fetch('description')
   end
+
+  def person_tag
+    @participant.fetch('person_tag')
+  end
 end

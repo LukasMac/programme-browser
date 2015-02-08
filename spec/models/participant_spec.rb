@@ -25,4 +25,11 @@ RSpec.describe Participant, :type => :model do
       expect(participant.description).to eq 'description'
     end
   end
+
+  describe '#person_tag' do
+    it 'should return correct participant person_tag' do
+      participant = Participant.new(participant_hash)
+      expect(participant.person_tag).to eq 'person_tag'
+    end
+  end
 end
