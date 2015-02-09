@@ -7,4 +7,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    %nav.navbar.navbar-inverse
+      .container
+        .navbar-header
+          %div.navbar-brand{:href => "#"} TV4 programme browser
     = yield
