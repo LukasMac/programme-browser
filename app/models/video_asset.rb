@@ -1,7 +1,8 @@
 class VideoAsset
   def self.find_all_by_person_tag(person_tag)
-    person_tag = URI::encode(person_tag)
     video_assets_endpoint = Rails.application.config.video_assets_endpoint
+    person_tag = URI::encode(person_tag)
+
     response = HTTParty.get("#{video_assets_endpoint}#{person_tag}").parsed_response
     response.fetch('results').map do |video_asset|
       VideoAsset.new(video_asset)

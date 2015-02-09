@@ -2,6 +2,7 @@ class Programme
   def self.find_by_name(name)
     name = URI::encode(name)
     programme_endpoint = Rails.application.config.programme_endpoint
+
     response = HTTParty.get("#{programme_endpoint}/#{name}").parsed_response
     Programme.new(response)
   end
