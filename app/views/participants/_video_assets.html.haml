@@ -1,2 +1,2 @@
 = image_tag @video_assets[params[:page].to_i].image, class: "img-thumbnail"
-= link_to 'Play video >>', participant.video_assets.first.video(params[:show_name]), :target => "_blank"
+= link_to 'Play video >>', @video_assets[params[:page].to_i].video(params[:show_name]), :target => "_blank"
