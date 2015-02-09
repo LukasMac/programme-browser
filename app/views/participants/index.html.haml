@@ -15,6 +15,7 @@
           %div.panel-body
             %p.text-center{ style: "min-height: 410px" }
               = image_tag participant.video_assets.first.image, class: "img-thumbnail"
+              = link_to 'Play video >>', participant.video_assets.first.video(params[:show_name]), :target => "_blank"
             %div.text-center
               %ul.pagination
                 - participant.video_assets.each_with_index do |video_asset, index|
