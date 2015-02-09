@@ -28,6 +28,22 @@ feature 'Participants index page' do
         }
         programme_json
     )
+      stub_request(:get, "http://api.tv4play.se/play/video_assets.json?tags=lisa-ajax").
+      to_return(
+          :headers => { 'Content-Type' => 'application/json' },
+          :body => <<-videos_assets_json
+          {
+            "results": [
+              {
+                "id": "123",
+                "title": "Video asset title",
+                "description": "Video asset description",
+                "image": "http://image.jpg"
+              }
+            ]
+          }
+          videos_assets_json
+      )
   end
 
   # Scenario: Participants page
