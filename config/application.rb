@@ -22,5 +22,10 @@ module Idol2
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+
+    config.programme_endpoint = "http://api.tv4play.se/site/programs"
+    config.video_assets_endpoint = "http://api.tv4play.se/play/video_assets.json?tags="
+    config.video_endpoint = "http://www.tv4play.se/program"
   end
 end
