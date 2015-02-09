@@ -1,4 +1,7 @@
-%h1= @programme.name
-%p= @programme.description
-=image_tag @programme.image
-=link_to 'Participant list', participants_url(@programme.name)
+%div.jumbotron
+  %div.container
+    %h1= @programme.name
+    %p= @programme.description
+    %p
+      =link_to 'Participant list', participants_url(@programme.name), class: "btn btn-primary btn-lg"
+    =image_tag @programme.image
