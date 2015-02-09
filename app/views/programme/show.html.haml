@@ -1,3 +1,4 @@
 %h1= @programme.name
 %p= @programme.description
 =image_tag @programme.image
+=link_to 'Participant list', participants_url(@programme.name)
