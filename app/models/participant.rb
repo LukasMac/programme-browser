@@ -28,6 +28,6 @@ class Participant
   end
 
   def video_assets
-    VideoAsset.find_all_by_person_tag(person_tag)
+    @video_assets ||= VideoAsset.find_all_by_person_tag(person_tag)
   end
 end

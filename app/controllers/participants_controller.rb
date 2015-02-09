@@ -4,5 +4,6 @@ class ParticipantsController < ApplicationController
   end
 
   def show
+    @video_assets = VideoAsset.find_all_by_person_tag(params[:person_tag])
   end
 end

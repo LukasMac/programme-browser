@@ -1,5 +1,10 @@
 %h1 Participants#index
-=@participants.each do |participant|
+- @participants.each do |participant|
   %p=participant.name
   %p=participant.description
   =image_tag participant.image
+  %div{ id: "video-assets-#{participant.person_tag}" }
+    = image_tag participant.video_assets.first.image
+    - participant.video_assets.each_with_index do |video_asset, index|
+      = link_to index, participant_url(params[:show_name], participant.person_tag, page: index), remote: true
+  %h1 ------------------

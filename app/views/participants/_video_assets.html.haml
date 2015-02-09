@@ -1,0 +1,3 @@
+= image_tag @video_assets[(params[:page].to_i || 0)].image
+- @video_assets.each_with_index do |video_asset, index|
+  = link_to index, participant_url(params[:show_name], person_tag, page: index), remote: true
